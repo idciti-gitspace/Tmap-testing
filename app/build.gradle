@@ -1,0 +1,67 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.myapplication"
+        minSdk 24
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    def compose_version = '1.1.1'
+
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    implementation files('libs/vsm-tmap-sdk-v2-android-1.6.2.aar')
+    implementation files('libs/navigation-sdk.aar')
+    implementation files('libs/tmap-ui-sdk-1.0.aar')
+
+    // for vsm sdk
+    implementation 'com.google.flatbuffers:flatbuffers-java:1.11.0'
+
+    //////////////////////////////////
+    // Dependency for Navi SDK.
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+    implementation 'com.google.android.exoplayer:exoplayer:2.17.1'
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.17.1'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.17.1'
+    //////////////////////////////////
+
+    //////////////////////////////////
+    // Dependency for UI SDK.
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation "androidx.compose.ui:ui:$compose_version"
+    implementation "androidx.compose.foundation:foundation:$compose_version"
+    implementation "androidx.compose.material:material:$compose_version"
+    implementation "androidx.compose.material:material-icons-core:$compose_version"
+    implementation "androidx.compose.material:material-icons-extended:$compose_version"
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
+    implementation 'com.airbnb.android:lottie:3.0.7'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    //////////////////////////////////
+    implementation 'com.opencsv:opencsv:5.6'
+}
